@@ -8,15 +8,17 @@ export default function Box({ box }) {
   function clickHandler() {
     if (box.content !== '') return;
     if (!isActive) return;
+
     box.content = currentPlayer;
     const newBoard = [...board];
     setBoard(newBoard);
+
     if (currentPlayer === 'X') {
       setCurrentPlayer('O');
       setGameMessage('Your move O!');
     } else {
       setCurrentPlayer('X');
-      setGameMessage('Your move X!');
+      setGameMessage('Your move again X!');
     }
   }
 

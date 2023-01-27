@@ -15,7 +15,7 @@ const GameProvider = ({ children }) => {
     { space: 7, content: '' },
     { space: 8, content: '' },
   ]);
-  const [gameMessage, setGameMessage] = useState('Your turn X!');
+  const [gameMessage, setGameMessage] = useState('Your turn X, click a square to start the game!');
   const [isActive, setIsActive] = useState(true);
 
   return (
