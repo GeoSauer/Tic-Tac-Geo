@@ -1,8 +1,9 @@
 import { useGameContext } from '../context/GameContext';
 import Board from './Board';
+import './Board.css';
 
 export default function Game() {
-  const { board } = useGameContext();
+  const { board, gameMessage } = useGameContext();
 
   return (
     <div className="game">
@@ -10,8 +11,8 @@ export default function Game() {
         <Board board={board}></Board>
       </div>
       <div className="game-info">
-        <div>Next player is X</div>
-        <button>Start the game!</button>
+        <div>{gameMessage}</div>
+        <button>Play Again</button>
       </div>
     </div>
   );

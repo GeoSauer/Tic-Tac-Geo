@@ -1,5 +1,6 @@
 import { useGameContext } from '../context/GameContext';
 import Box from './Box';
+import './Box.css';
 
 export default function Board() {
   const { board } = useGameContext();

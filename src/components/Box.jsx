@@ -1,6 +1,5 @@
-import React from 'react';
+import './Box.css';
 
 export default function Box({ box }) {
-  console.log({ box });
-  return <button className="btn">{box.content}</button>;
+  return <div className="btn">{box.content}</div>;
 }

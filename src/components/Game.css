@@ -1,0 +1,12 @@
+.game {
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+}
+
+/* .game-info {
+  color: var(--color4);
+  margin: 15px;
+  display: flex;
+  align-content: center;
+  justify-content: center;
+} */
