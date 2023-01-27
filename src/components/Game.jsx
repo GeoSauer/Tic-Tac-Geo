@@ -1,15 +1,13 @@
-// import React, { useState } from 'react';
-// import { useGameContext } from '../context/GameContext';
+import { useGameContext } from '../context/GameContext';
 import Board from './Board';
 
 export default function Game() {
-  //   const { board } = useGameContext();
-  //   const boxes = Array(9).fill(null);
+  const { board } = useGameContext();
+
   return (
     <div className="game">
       <div className="game-board">
-        {/* <Board board={board}></Board> */}
-        <Board></Board>
+        <Board board={board}></Board>
       </div>
       <div className="game-info">
         <div>Next player is X</div>

@@ -1,9 +1,6 @@
 import React from 'react';
 
-export default function Box({ onClick, value }) {
-  return (
-    <button className="btn" onClick={onClick}>
-      {value}
-    </button>
-  );
+export default function Box({ box }) {
+  console.log({ box });
+  return <button className="btn">{box.content}</button>;
 }

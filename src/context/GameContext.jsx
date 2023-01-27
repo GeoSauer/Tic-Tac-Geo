@@ -4,7 +4,17 @@ const GameContext = createContext();
 
 const GameProvider = ({ children }) => {
   const [currentPlayer, setCurrentPlayer] = useState('X');
-  const [board, setBoard] = useState(['', '', '', '', '', '', '', '', '']);
+  const [board, setBoard] = useState([
+    { space: 0, content: '' },
+    { space: 1, content: '' },
+    { space: 2, content: '' },
+    { space: 3, content: '' },
+    { space: 4, content: '' },
+    { space: 5, content: '' },
+    { space: 6, content: '' },
+    { space: 7, content: '' },
+    { space: 8, content: '' },
+  ]);
   const [gameMessage, setGameMessage] = useState('Your turn X!');
   const [isActive, setIsActive] = useState(true);
 
@@ -16,6 +26,7 @@ const GameProvider = ({ children }) => {
         board,
         setBoard,
         gameMessage,
+
         setGameMessage,
         isActive,
         setIsActive,

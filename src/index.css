@@ -60,5 +60,5 @@ body {
 }
 
 .board > div {
-  display: flex;
+  display: grid;
 }
