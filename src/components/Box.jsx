@@ -24,7 +24,7 @@ export default function Box({ box }) {
 
   return (
     <div className="btn" onClick={() => clickHandler()}>
-      {box.content} {box.space}
+      {box.content}
     </div>
   );
 }

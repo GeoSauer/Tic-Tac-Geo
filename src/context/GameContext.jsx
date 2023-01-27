@@ -45,6 +45,19 @@ const GameProvider = ({ children }) => {
     }
   };
 
+  // const isCatsGame = () => {
+  //   if (board[0].content !== '' && board[0].content !== '' &&
+  // };
+  const checkGameStatus = () => {
+    if (!isActive) return;
+    const winner = checkWinner();
+    if (winner) {
+      setGameMessage(`You win ${winner}!`);
+      setIsActive(false);
+    }
+  };
+  checkGameStatus();
+
   return (
     <GameContext.Provider
       value={{
