@@ -7,8 +7,8 @@ export default function Board() {
 
   return (
     <div className="board">
-      {board.map((box, index) => (
-        <Box key={index} {...{ box }} {...{ index }} />
+      {board.map((box) => (
+        <Box key={box.space} {...{ box }} />
       ))}
     </div>
   );

@@ -1,14 +1,24 @@
 import { useGameContext } from '../context/GameContext';
 import './Box.css';
 
-export default function Box({ box, index }) {
-  const { currentPlayer, setCurrentPlayer, board, setBoard, isActive } = useGameContext();
+export default function Box({ box }) {
+  const { currentPlayer, setCurrentPlayer, board, setBoard, isActive, setGameMessage } =
+    useGameContext();
 
-  const clickHandler = (space, content) => {
+  function clickHandler() {
     if (box.content !== '') return;
     if (!isActive) return;
-    console.log('wow what a click!', index);
-  };
+    box.content = currentPlayer;
+    const newBoard = [...board];
+    setBoard(newBoard);
+    if (currentPlayer === 'X') {
+      setCurrentPlayer('O');
+      setGameMessage('Your move O!');
+    } else {
+      setCurrentPlayer('X');
+      setGameMessage('Your move X!');
+    }
+  }
 
   return (
     <div className="btn" onClick={() => clickHandler()}>
