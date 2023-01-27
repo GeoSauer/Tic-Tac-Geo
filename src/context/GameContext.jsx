@@ -18,6 +18,33 @@ const GameProvider = ({ children }) => {
   const [gameMessage, setGameMessage] = useState('Your turn X, click a square to start the game!');
   const [isActive, setIsActive] = useState(true);
 
+  const checkWinner = () => {
+    if (board[0].content === board[1].content && board[1].content === board[2].content) {
+      return board[2].content;
+    }
+    if (board[3].content === board[4].content && board[4].content === board[5].content) {
+      return board[5].content;
+    }
+    if (board[6].content === board[7].content && board[7].content === board[8].content) {
+      return board[8].content;
+    }
+    if (board[0].content === board[3].content && board[3].content === board[6].content) {
+      return board[6].content;
+    }
+    if (board[1].content === board[4].content && board[4].content === board[7].content) {
+      return board[7].content;
+    }
+    if (board[2].content === board[5].content && board[5].content === board[8].content) {
+      return board[8].content;
+    }
+    if (board[0].content === board[4].content && board[4].content === board[8].content) {
+      return board[8].content;
+    }
+    if (board[2].content === board[4].content && board[4].content === board[6].content) {
+      return board[6].content;
+    }
+  };
+
   return (
     <GameContext.Provider
       value={{
