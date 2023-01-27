@@ -1,24 +1,54 @@
-import React from 'react';
+import { useGameContext } from '../context/GameContext';
 import Box from './Box';
 
-export default function Board({ boxes, onClick }) {
+export default function Board({ onClick }) {
+  const {
+    currentPlayer,
+    setCurrentPlayer,
+    board,
+    setBoard,
+    gameMessage,
+    setGameMessage,
+    isActive,
+    setIsActive,
+  } = useGameContext();
+
+  console.log(
+    currentPlayer,
+    'currentPlayer',
+    setCurrentPlayer,
+    'setCurrentPlayer',
+    board,
+    'board',
+    setBoard,
+    'setBoard',
+    gameMessage,
+    'gameMessage',
+    setGameMessage,
+    'setGameMessage',
+    isActive,
+    'isActive',
+    setIsActive,
+    'setIsActive'
+  );
+
   return (
     <div className="board">
       <div>
         <Box
-          value={boxes[0]}
+          value={board[0]}
           onClick={() => {
             onClick(0);
           }}
         />
         <Box
-          value={boxes[1]}
+          value={board[1]}
           onClick={() => {
             onClick(1);
           }}
         />
         <Box
-          value={boxes[2]}
+          value={board[2]}
           onClick={() => {
             onClick(2);
           }}
@@ -26,19 +56,19 @@ export default function Board({ boxes, onClick }) {
       </div>
       <div>
         <Box
-          value={boxes[3]}
+          value={board[3]}
           onClick={() => {
             onClick(3);
           }}
         />
         <Box
-          value={boxes[4]}
+          value={board[4]}
           onClick={() => {
             onClick(4);
           }}
         />
         <Box
-          value={boxes[5]}
+          value={board[5]}
           onClick={() => {
             onClick(5);
           }}
@@ -46,19 +76,19 @@ export default function Board({ boxes, onClick }) {
       </div>
       <div>
         <Box
-          value={boxes[6]}
+          value={board[6]}
           onClick={() => {
             onClick(6);
           }}
         />
         <Box
-          value={boxes[7]}
+          value={board[7]}
           onClick={() => {
             onClick(7);
           }}
         />
         <Box
-          value={boxes[8]}
+          value={board[8]}
           onClick={() => {
             onClick(8);
           }}
