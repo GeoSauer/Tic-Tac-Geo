@@ -45,19 +45,15 @@ const GameProvider = ({ children }) => {
     }
   };
 
-  // const isCatsGame = () => {
-  //   if (board[0].content !== '' && board[1].content !== '' && board[2].content !== '' && board[3].content !== '' && board[4].content !== '' && board[5].content !== '' && board[6].content !== '' && board[7].content !== '' && board[8].content !== '')
-
-  // };
   const checkGameStatus = () => {
     if (!isActive) return;
-    // if (!board.includes('')) {
-    //   setGameMessage("That's a tie folx!");
-    //   setIsActive(false);
-    // }
     const winner = checkWinner();
     if (winner) {
       setGameMessage(`You win ${winner}!`);
+      setIsActive(false);
+    }
+    if (board.includes(!'')) {
+      setGameMessage("That's a tie folx!");
       setIsActive(false);
     }
   };

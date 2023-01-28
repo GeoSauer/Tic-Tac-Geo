@@ -7,7 +7,7 @@ export default function Game() {
     useGameContext();
 
   const resetClickHandler = () => {
-    setCurrentPlayer('X');
+    setCurrentPlayer('🍄');
     setBoard([
       { space: 0, content: '' },
       { space: 1, content: '' },
@@ -19,7 +19,7 @@ export default function Game() {
       { space: 7, content: '' },
       { space: 8, content: '' },
     ]);
-    setGameMessage('Your turn X, click a square to start the game!');
+    setGameMessage('Your turn 🍄, click a square to start the game!');
     setIsActive(true);
   };
 
