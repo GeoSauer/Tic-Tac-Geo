@@ -3,7 +3,25 @@ import Board from './Board';
 import './Board.css';
 
 export default function Game() {
-  const { board, gameMessage, isActive } = useGameContext();
+  const { board, setBoard, gameMessage, setGameMessage, isActive, setIsActive, setCurrentPlayer } =
+    useGameContext();
+
+  const clickHandler = () => {
+    setCurrentPlayer('X');
+    setBoard([
+      { space: 0, content: '' },
+      { space: 1, content: '' },
+      { space: 2, content: '' },
+      { space: 3, content: '' },
+      { space: 4, content: '' },
+      { space: 5, content: '' },
+      { space: 6, content: '' },
+      { space: 7, content: '' },
+      { space: 8, content: '' },
+    ]);
+    setGameMessage('Your turn X, click a square to start the game!');
+    setIsActive(true);
+  };
 
   return (
     <div className="game">
@@ -24,7 +42,7 @@ export default function Game() {
           </div>
           <div className="game-info">
             <div>{gameMessage}</div>
-            <button>Play Again!</button>
+            <button onClick={clickHandler}>Play Again!</button>
           </div>
         </>
       )}

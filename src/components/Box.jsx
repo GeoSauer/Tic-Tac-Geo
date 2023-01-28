@@ -5,7 +5,7 @@ export default function Box({ box }) {
   const { currentPlayer, setCurrentPlayer, board, setBoard, isActive, setGameMessage } =
     useGameContext();
 
-  function clickHandler() {
+  const clickHandler = () => {
     if (box.content !== '') return;
     if (!isActive) return;
 
@@ -20,10 +20,10 @@ export default function Box({ box }) {
       setCurrentPlayer('X');
       setGameMessage('Your move again X!');
     }
-  }
+  };
 
   return (
-    <div className="btn" onClick={() => clickHandler()}>
+    <div className="btn" onClick={clickHandler}>
       {box.content}
     </div>
   );
