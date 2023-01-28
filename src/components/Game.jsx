@@ -6,7 +6,7 @@ export default function Game() {
   const { board, setBoard, gameMessage, setGameMessage, isActive, setIsActive, setCurrentPlayer } =
     useGameContext();
 
-  const clickHandler = () => {
+  const resetClickHandler = () => {
     setCurrentPlayer('X');
     setBoard([
       { space: 0, content: '' },
@@ -42,7 +42,7 @@ export default function Game() {
           </div>
           <div className="game-info">
             <div>{gameMessage}</div>
-            <button onClick={clickHandler}>Play Again!</button>
+            <button onClick={resetClickHandler}>Play Again!</button>
           </div>
         </>
       )}

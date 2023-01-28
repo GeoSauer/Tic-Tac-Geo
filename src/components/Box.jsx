@@ -5,7 +5,7 @@ export default function Box({ box }) {
   const { currentPlayer, setCurrentPlayer, board, setBoard, isActive, setGameMessage } =
     useGameContext();
 
-  const clickHandler = () => {
+  const boxClickHandler = () => {
     if (box.content !== '') return;
     if (!isActive) return;
 
@@ -13,17 +13,17 @@ export default function Box({ box }) {
     const newBoard = [...board];
     setBoard(newBoard);
 
-    if (currentPlayer === 'X') {
-      setCurrentPlayer('O');
-      setGameMessage('Your move O!');
+    if (currentPlayer === '🍄') {
+      setCurrentPlayer('🌵');
+      setGameMessage('Your move 🌵!');
     } else {
-      setCurrentPlayer('X');
-      setGameMessage('Your move again X!');
+      setCurrentPlayer('🍄');
+      setGameMessage('Your move again 🍄!');
     }
   };
 
   return (
-    <div className="btn" onClick={clickHandler}>
+    <div className="btn" onClick={boxClickHandler}>
       {box.content}
     </div>
   );

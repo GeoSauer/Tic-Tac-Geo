@@ -3,7 +3,7 @@ import { createContext, useContext, useState } from 'react';
 const GameContext = createContext();
 
 const GameProvider = ({ children }) => {
-  const [currentPlayer, setCurrentPlayer] = useState('X');
+  const [currentPlayer, setCurrentPlayer] = useState('🍄');
   const [board, setBoard] = useState([
     { space: 0, content: '' },
     { space: 1, content: '' },
@@ -15,7 +15,7 @@ const GameProvider = ({ children }) => {
     { space: 7, content: '' },
     { space: 8, content: '' },
   ]);
-  const [gameMessage, setGameMessage] = useState('Your turn X, click a square to start the game!');
+  const [gameMessage, setGameMessage] = useState('Your turn 🍄, click a square to start the game!');
   const [isActive, setIsActive] = useState(true);
 
   const checkWinner = () => {
@@ -51,6 +51,10 @@ const GameProvider = ({ children }) => {
   // };
   const checkGameStatus = () => {
     if (!isActive) return;
+    // if (!board.includes('')) {
+    //   setGameMessage("That's a tie folx!");
+    //   setIsActive(false);
+    // }
     const winner = checkWinner();
     if (winner) {
       setGameMessage(`You win ${winner}!`);
