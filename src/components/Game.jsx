@@ -9,7 +9,7 @@ export default function Game() {
     <div className="game">
       <header>
         <h1>Tic-Tac-Geo</h1>
-        <h2>The Battle as Old as Time Between 🍄 and 🌵</h2>
+        <h2>The Battle as Old as Time</h2>
       </header>
       {isActive && (
         <>
