@@ -18,22 +18,55 @@ const GameProvider = ({ children }) => {
   const [gameMessage, setGameMessage] = useState('Your turn 🍄, click a square to start the game!');
   const [isActive, setIsActive] = useState(true);
 
+  // check to see if a row/column of boxes all have the same content and that the content is not an empty string
   const checkWinner = () => {
-    if (board[0].content === board[1].content && board[1].content === board[2].content) {
+    if (
+      board[0].content === board[1].content &&
+      board[1].content === board[2].content &&
+      board[2].content !== ''
+    ) {
       return board[2].content;
-    } else if (board[3].content === board[4].content && board[4].content === board[5].content) {
+    } else if (
+      board[3].content === board[4].content &&
+      board[4].content === board[5].content &&
+      board[5].content !== ''
+    ) {
       return board[5].content;
-    } else if (board[6].content === board[7].content && board[7].content === board[8].content) {
+    } else if (
+      board[6].content === board[7].content &&
+      board[7].content === board[8].content &&
+      board[8].content !== ''
+    ) {
       return board[8].content;
-    } else if (board[0].content === board[3].content && board[3].content === board[6].content) {
+    } else if (
+      board[0].content === board[3].content &&
+      board[3].content === board[6].content &&
+      board[6].content !== ''
+    ) {
       return board[6].content;
-    } else if (board[1].content === board[4].content && board[4].content === board[7].content) {
+    } else if (
+      board[1].content === board[4].content &&
+      board[4].content === board[7].content &&
+      board[7].content !== ''
+    ) {
       return board[7].content;
-    } else if (board[2].content === board[5].content && board[5].content === board[8].content) {
+    } else if (
+      board[2].content === board[5].content &&
+      board[5].content === board[8].content &&
+      board[8].content !== ''
+    ) {
       return board[8].content;
-    } else if (board[0].content === board[4].content && board[4].content === board[8].content) {
+    } else if (
+      board[0].content === board[4].content &&
+      board[4].content === board[8].content &&
+      board[8].content !== ''
+    ) {
       return board[8].content;
-    } else if (board[2].content === board[4].content && board[4].content === board[6].content) {
+    } else if (
+      board[2].content === board[4].content &&
+      board[4].content === board[6].content &&
+      board[6].content !== ''
+    ) {
       return board[6].content;
     }
   };
