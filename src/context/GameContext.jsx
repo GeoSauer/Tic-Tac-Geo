@@ -15,11 +15,14 @@ const GameProvider = ({ children }) => {
     { space: 7, content: '' },
     { space: 8, content: '' },
   ]);
-  const [gameMessage, setGameMessage] = useState('Your turn 🍄, click a square to start the game!');
+  const [gameMessage, setGameMessage] = useState('Your turn 🍄, click a box to start!');
   const [isActive, setIsActive] = useState(true);
+  const [mushroomWins, setMushroomWins] = useState(0);
+  const [cactusWins, setCactusWins] = useState(0);
+  const [wonGame, setWonGame] = useState(false);
 
-  // check to see if a row/column of boxes all have the same content and that the content is not an empty string
   const checkWinner = () => {
+    // check to see if a row/column of boxes all have the same content and that the content is not an empty string
     if (
       board[0].content === board[1].content &&
       board[1].content === board[2].content &&
@@ -74,25 +77,33 @@ const GameProvider = ({ children }) => {
   const isCatsGame = () => {
     // create an array of boxes with direct access to their contents
     const contents = board.map((box) => box.content);
-    return contents;
+    const winner = checkWinner();
+    // if no empty boxes remain and there's no winner call a tie
+    if (!contents.includes('') && !winner) {
+      setGameMessage("That's a tie folx!");
+      setIsActive(false);
+      setWonGame(false);
+    }
   };
 
   const checkGameStatus = () => {
     // if game is inactive, return
     if (!isActive) return;
-
     // check for a winner and update message if there is one
     const winner = checkWinner();
-    const contents = isCatsGame();
     if (winner) {
       setGameMessage(`You win ${winner}!`);
       setIsActive(false);
-    }
-    // check if every box has content but no winner has been chosen
-    if (!contents.includes('') && !winner) {
-      setGameMessage("That's a tie folx!");
-      setIsActive(false);
-    }
+      setWonGame(true);
+      // update scoreboard based on winner
+      if (winner === '🍄') {
+        const wins = mushroomWins;
+        setMushroomWins(wins + 1);
+      } else if (winner === '🌵') {
+        const wins = cactusWins;
+        setCactusWins(wins + 1);
+      }
+    } else isCatsGame();
   };
   checkGameStatus();
 
@@ -109,9 +120,11 @@ const GameProvider = ({ children }) => {
       { space: 7, content: '' },
       { space: 8, content: '' },
     ]);
-    setGameMessage('Your turn 🍄, click a square to start the game!');
+    setGameMessage('Your turn 🍄, click a box to start!');
     setIsActive(true);
+    setWonGame(false);
   };
+
   return (
     <GameContext.Provider
       value={{
@@ -124,6 +137,9 @@ const GameProvider = ({ children }) => {
         isActive,
         setIsActive,
         resetClickHandler,
+        mushroomWins,
+        cactusWins,
+        wonGame,
       }}
     >
       {children}

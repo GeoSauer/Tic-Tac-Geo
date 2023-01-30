@@ -11,7 +11,7 @@ body {
   --color4: #2e282a;
   --color5: #76b041;
   --color6: #1dc9c6;
-  align-items: center;
+  /* align-items: center; */
   background-color: var(--color5);
   color: var(--color4);
   cursor: default;
