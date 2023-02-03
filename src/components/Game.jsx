@@ -2,6 +2,7 @@ import { useGameContext } from '../context/GameContext';
 import Board from './Board';
 import ReactConfetti from 'react-confetti';
 import './Game.css';
+import sound from '../../src/kazoo.ogg';
 
 export default function Game() {
   const { gameMessage, isActive, resetClickHandler, mushroomWins, cactusWins, wonGame } =
@@ -40,7 +41,12 @@ export default function Game() {
         </>
       )}
       {/* if game has a winner pop the confetti */}
-      {wonGame && <ReactConfetti />}
+      {wonGame && (
+        <>
+          <ReactConfetti />
+          <audio autoPlay src={sound} />
+        </>
+      )}
     </div>
   );
 }

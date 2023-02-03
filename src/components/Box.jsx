@@ -1,4 +1,5 @@
 import { useGameContext } from '../context/GameContext';
+
 import './Box.css';
 
 export default function Box({ box }) {
@@ -16,7 +17,6 @@ export default function Box({ box }) {
     box.content = currentPlayer;
     const newBoard = [...board];
     setBoard(newBoard);
-
     //check current player and update message appropriately
     if (currentPlayer === '🍄') {
       setCurrentPlayer('🌵');
