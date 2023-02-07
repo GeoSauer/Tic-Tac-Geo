@@ -1,0 +1,29 @@
+.btn {
+  align-items: center;
+  background-color: var(--color2);
+  border: 2px solid var(--color6);
+  border-radius: 5px;
+  box-shadow: 0 12px var(--color1), 0 18px rgba(0, 0, 0, 0.4);
+  cursor: pointer;
+  display: flex;
+  font-size: 60px;
+  height: 80px;
+  justify-content: center;
+  margin: 15px;
+  padding: 5px;
+  position: relative;
+  top: 0;
+  width: 90px;
+}
+
+.btn:hover {
+  background-color: var(--color6);
+  box-shadow: 0 8px var(--color1), 0 14px rgba(0, 0, 0, 0.4);
+  color: var(--color2);
+  top: 4px;
+}
+
+.btn:active {
+  box-shadow: 0 4px var(--color1), 0 10px rgba(0, 0, 0, 0.4);
+  top: 8px;
+}
